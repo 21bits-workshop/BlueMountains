@@ -7,7 +7,7 @@
 
 
 // Initialization ------------------------------------------
-let testRoom = Room(description: "You are in a test room. It's dark in here.")
+let testRoom = Room(name: "Test Room", description: "You are in a test room. It's dark in here.", exitsTo: "north", "south", "east", "west")
 let testPlayer = ControllableCharacter(name: "test player", description: "this is a test player", location: testRoom, traits: [])
 let testCharacter = ControllableCharacter(name: "test character", description: "this is a test character", location: testRoom, traits: [])
 
