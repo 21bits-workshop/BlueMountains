@@ -21,11 +21,13 @@ class SceneryObject : GameObject {
 
 class InventoryObject : GameObject {
     var isConsumable : Bool = false
+    var inventoryDescription: String = ""
     var useFunction: () -> Void = {}
     
-    init(name: String, description: String, isConsumable: Bool, useFunction: @escaping () -> Void) {
+    init(name: String, description: String, isConsumable: Bool, inventoryDescription: String, useFunction: @escaping () -> Void) {
         super.init(name: name, description: description)
         self.isConsumable = isConsumable
+        self.inventoryDescription = inventoryDescription
         self.useFunction = useFunction
     }
     

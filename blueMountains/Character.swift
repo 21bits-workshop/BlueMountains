@@ -36,21 +36,34 @@ class ControllableCharacter : Character {
         switch commandLine.first {
             
         case "look", "l", "examine", "x":
+            var commandRecognized = false
+            
             if commandLine.count == 1 {
                 self.location.printDescription()
             } else {
                 for word in commandLine {
                     if word == "around" || word == "room" || word == "environment" {
                         self.location.printDescription()
+                        commandRecognized = true
                         break
                     } else if word == "self" || word == "myself" || word == "me" || word == "yourself" {
                         self.printDescription()
+                        commandRecognized = true
                         break
-                    } else if word == commandLine.last {
-                        // If we come to the last word of the line without any others recognized...
-                        print("I don't understand.")
-                        break
+                    } else {
+                        for item in self.inventory {
+                            if word.lowercased() == item.name.lowercased() {
+                                print(item.inventoryDescription)
+                                commandRecognized = true
+                                break
+                            }
+                        }
                     }
+                }
+                
+                // If we come to the last word of the line without any others recognized...
+                if !commandRecognized {
+                    print("I don't understand.")
                 }
             }
             
@@ -93,7 +106,6 @@ class ControllableCharacter : Character {
                     (print("and \(item.name)."))
                 }
             }
-            print("\n")
             
         case "go":
             print("Go where?")
