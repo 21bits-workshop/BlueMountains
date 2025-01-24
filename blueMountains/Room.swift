@@ -10,11 +10,10 @@ class Room {
     let description: String
     var wasDescribed: Bool
     
-    var exits: [String : Room]
+    var exits: [Direction : Room]
     
-    // TODO: Create an Enum for directions.
     // TODO: Create a Struct for room/direction pairs, use them in exitsTo
-    init(name: String, description: String, exitsTo: String...) {
+    init(name: String, description: String, exitsTo: Direction...) {
         self.name = name
         self.description = description
         self.wasDescribed = false
@@ -22,12 +21,16 @@ class Room {
         self.exits = [:]
         
         for direction in exitsTo {
-            exits[direction] = self
+            exits[direction] = self // Obviously temporary
         }
     }
     
     func printDescription() {
         print(description)
         print(exits)
+    }
+    
+    func printName() {
+        print("\u{001B}[1m\(name)\u{001B}[0m")
     }
 }

@@ -4,6 +4,20 @@
 //
 //  Created by 21bits on 1/23/25.
 //
+
+enum Direction {
+    case north
+    case south
+    case east
+    case west
+    case up
+    case down
+    case northeast
+    case northwest
+    case southeast
+    case southwest
+}
+
 struct Constants {
     
     // verbList contains all words that should be treated by the parser as commands -

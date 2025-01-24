@@ -10,12 +10,14 @@ class Character {
     var description: String
     var location: Room
     var traits: [String]
+    var inventory: [InventoryObject]
     
     init(name: String, description: String, location: Room, traits: [String]) {
         self.name = name
         self.description = description
         self.location = location
         self.traits = traits
+        inventory = []
     }
     
     func printDescription() {
@@ -30,16 +32,15 @@ class Character {
 class ControllableCharacter : Character {
     override func controlCharacter(with commandLine: [String]) {
         // Again, we assume the first word is the command.
-        // TODO: See if there's a way to bring in TextParser's getCommand() without too much pain.
         
         switch commandLine.first {
-
+            
         case "look", "l", "examine", "x":
             if commandLine.count == 1 {
                 self.location.printDescription()
             } else {
                 for word in commandLine {
-                    if word == "around" {
+                    if word == "around" || word == "room" || word == "environment" {
                         self.location.printDescription()
                         break
                     } else if word == "self" || word == "myself" || word == "me" || word == "yourself" {
@@ -63,10 +64,36 @@ class ControllableCharacter : Character {
             print("What do you want to drop?")
             
         case "use":
-            print("Use what?")
+            var itemNameFound: Bool = false
+            
+            if commandLine.count == 1{  // The user has not provided an argument...
+                print("Use what?")
+            } else {
+                for word in commandLine {
+                    for item in self.inventory {
+                        if item.name.lowercased() == word.lowercased() {
+                            item.use()
+                            itemNameFound = true
+                            break
+                        }
+                    }
+                }
+                if !itemNameFound {
+                    print("You don't have that item.")
+                }
+            }
             
         case "inventory", "i", "inv" :
-            print("Not implemented yet.")
+            print("You are carrying: ")
+            
+            for item in self.inventory {
+                if !(item === self.inventory.last && self.inventory.count > 1) {
+                    print(item.name, terminator: ", ")
+                } else {
+                    (print("and \(item.name)."))
+                }
+            }
+            print("\n")
             
         case "go":
             print("Go where?")

@@ -11,8 +11,4 @@ class Game {
     init(playerCharacter: Character) {
         self.playerCharacter = playerCharacter
     }
-    
-    func printPlayerLocationDescription() {
-        playerCharacter.location.printDescription()
-    }
 }
