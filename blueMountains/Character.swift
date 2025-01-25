@@ -33,6 +33,14 @@ class Character {
 // TODO: Holy *shit* do some refactoring.
 
 class ControllableCharacter : Character {
+    func move(direction: Direction) {
+        if self.location.exits[direction] != nil {
+            self.location = self.location.exits[direction]!
+        } else {
+            print("You can't move that way.")
+        }
+    }
+    
     override func controlCharacter(with commandLine: [String]) {
         // Again, we assume the first word is the command.
         
@@ -129,76 +137,34 @@ class ControllableCharacter : Character {
             break
             
         case "north", "n":
-            if self.location.exits[.north] != nil {
-                self.location = self.location.exits[.north]!
-            } else {
-                print("You can't move that way.")
-            }
+            move(direction: .north)
             
         case "south", "s":
-            if self.location.exits[.south] != nil {
-                self.location = self.location.exits[.south]!
-            } else {
-                print("You can't move that way.")
-            }
+            move(direction: .south)
             
         case "east", "e":
-            if self.location.exits[.east] != nil {
-                self.location = self.location.exits[.east]!
-            } else {
-                print("You can't move that way.")
-            }
+            move(direction: .east)
             
         case "west", "w":
-            if self.location.exits[.west] != nil {
-                self.location = self.location.exits[.west]!
-            } else {
-                print("You can't move that way.")
-            }
+            move(direction: .west)
             
         case "up", "u":
-            if self.location.exits[.up] != nil {
-                print("You climb up...")
-                self.location = self.location.exits[.up]!
-            } else {
-                print("There's nothing to climb.")
-            }
+            move(direction: .up)
             
         case "down", "d":
-            if self.location.exits[.down] != nil {
-                print("You climb down...")
-                self.location = self.location.exits[.down]!
-            } else {
-                print("There's nothing to climb.")
-            }
+            move(direction: .down)
             
         case "northeast", "ne":
-            if self.location.exits[.northeast] != nil {
-                self.location = self.location.exits[.northeast]!
-            } else {
-                print("You can't move that way.")
-            }
+            move(direction: .northeast)
             
         case "northwest", "nw":
-            if self.location.exits[.northwest] != nil {
-                self.location = self.location.exits[.northwest]!
-            } else {
-                print("You can't move that way.")
-            }
+          move(direction: .northwest)
             
         case "southeast", "se":
-            if self.location.exits[.southeast] != nil {
-                self.location = self.location.exits[.southeast]!
-            } else {
-                print("You can't move that way.")
-            }
+            move(direction: .southeast)
             
         case "southwest", "sw":
-            if self.location.exits[.southwest] != nil {
-                self.location = self.location.exits[.southwest]!
-            } else {
-                print("You can't move that way.")
-            }
+            move(direction: .southwest)
             
         case "climb":
             print("Climb what?")
