@@ -6,8 +6,13 @@
 //
 
 
-// Initialization ------------------------------------------
-let testRoom = Room(name: "Test Room", description: "You are in a test room. It's dark in here.", exitsTo: .north, .south, .east, .west)
+// MARK: Initialization ------------------------------------------
+let testRoom = Room(name: "Test Room", description: "You are in a test room. It's dark in here.")
+let diningRoom = Room(name: "Dining Room", description: "You are in a lavish dining room, with a long table set for at least a dozen guests.")
+
+testRoom.addConnection(to: RoomConnection(direction: .south, destination: diningRoom))
+diningRoom.addConnection(to: RoomConnection(direction: .north, destination: testRoom))
+
 let testPlayer = ControllableCharacter(name: "test player", description: "this is a test player", location: testRoom, traits: [])
 let testCharacter = ControllableCharacter(name: "test character", description: "this is a test character", location: testRoom, traits: [])
 
@@ -32,7 +37,9 @@ let currentGame = Game(playerCharacter: testPlayer)
 let parser = TextParser()
 // ---------------------------------------------------------
 
-// Main Loop -----------------------------------------------
+
+
+// MARK: Main Loop -----------------------------------------------
 
 // Testing purposes only. Will likely replace with while(true) and exit in the parser.
 while !parser.parsedText.contains("QUIT") {
