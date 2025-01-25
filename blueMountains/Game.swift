@@ -15,8 +15,12 @@ class Game {
         print("You rub the elsi. It's rough.")
     })
 
-    let testInventoryItem3 = InventoryObject(name: "Ni", description: "It's just a box", isConsumable: false, inventoryDescription: "... but that's future me's problem.", useFunction: {
+    let testInventoryItem3 = InventoryObject(name: "Ni", description: "It's just a box", isConsumable: false, inventoryDescription: "... but that's future me's problem.", droppedDescription: "It's a Ni that's been dropped on the floor. How careless!", useFunction: {
         print("You rub the box. Why?")
+    })
+    
+    let testPickupitem = InventoryObject(name: "floorthing", description: "you found it on the floor", isConsumable: false, inventoryDescription: "it's in your inventory now", useFunction: {
+        print("Yep, that works.")
     })
     
     var playerCharacter: Character
@@ -24,13 +28,20 @@ class Game {
     init() {
         
         let testRoom = Room(name: "Test Room", description: "You are in a test room. It's dark in here.")
-        let diningRoom = Room(name: "Dining Room", description: "You are in a lavish dining room, with a long table set for at least a dozen guests.")
+        let testDiningRoom = Room(name: "Dining Room", description: "You are in a lavish dining room, with a long table set for at least a dozen guests.")
 
-        testRoom.addConnection(to: RoomConnection(direction: .south, destination: diningRoom))
-        diningRoom.addConnection(to: RoomConnection(direction: .north, destination: testRoom))
+        testRoom.addConnection(to: RoomConnection(direction: .south, destination: testDiningRoom))
+        testDiningRoom.addConnection(to: RoomConnection(direction: .north, destination: testRoom))
 
         let testPlayer = ControllableCharacter(name: "test player", description: "this is a test player", location: testRoom, traits: [])
         
         self.playerCharacter = testPlayer
+        
+        self.playerCharacter.inventory.append(self.testInventoryItem)
+        self.playerCharacter.inventory.append(self.testInventoryItem2)
+        self.playerCharacter.inventory.append(self.testInventoryItem3)
+        
+        testRoom.addGameObject(gameObject: self.testPickupitem)
+
     }
 }

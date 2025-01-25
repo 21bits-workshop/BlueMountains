@@ -9,12 +9,8 @@
 // MARK: Initialization ------------------------------------------
 
 let currentGame = Game()
-
-currentGame.playerCharacter.inventory.append(currentGame.testInventoryItem)
-currentGame.playerCharacter.inventory.append(currentGame.testInventoryItem2)
-currentGame.playerCharacter.inventory.append(currentGame.testInventoryItem3)
-
 let parser = TextParser()
+
 // ---------------------------------------------------------
 
 

@@ -29,9 +29,6 @@ class Character {
     }
 }
 
-
-// TODO: Holy *shit* do some refactoring.
-
 class ControllableCharacter : Character {
     func move(direction: Direction) {
         if self.location.exits[direction] != nil {
@@ -46,6 +43,7 @@ class ControllableCharacter : Character {
         
         switch commandLine.first {
             
+        // TODO: Implement looking at items in Room inventories/floors.
         case "look", "l", "examine", "x":
             var commandRecognized = false
             
@@ -82,10 +80,49 @@ class ControllableCharacter : Character {
             print("To who?")
             
         case "take", "get", "pick", "pickup", "grab":
-            print("What do you want to pick up?")
+            var itemNameFound: Bool = false
+            
+            if commandLine.count == 1 {
+                print("What do you want to pick up?")
+            } else {
+                for word in commandLine {
+                    for item in self.location.inventory {
+                        if item is InventoryObject {
+                            if item.name.lowercased() == word.lowercased() {
+                                self.inventory.append(item as! InventoryObject)
+                                self.location.inventory.removeAll(where: {$0 === item})
+                                itemNameFound = true
+                                break
+                            }
+                        }
+                    }
+                }
+                if !itemNameFound {
+                    print("You don't see that here.")
+                }
+            }
             
         case "drop":
-            print("What do you want to drop?")
+            var itemNameFound: Bool = false
+            
+            if commandLine.count == 1 {
+                print("What do you want to drop?")
+            } else {
+                for word in commandLine {
+                    for item in self.inventory {
+                            if item.name.lowercased() == word.lowercased() {
+                                self.location.floor.append(item)
+                                self.inventory.removeAll(where: {$0 === item})
+                                print("You drop the \(item.name)")
+                                itemNameFound = true
+                                break
+                            }
+                    }
+                }
+                if !itemNameFound {
+                    print("You aren't carrying that.")
+                }
+            }
             
         case "use":
             var itemNameFound: Bool = false
