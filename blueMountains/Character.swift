@@ -34,7 +34,7 @@ class ControllableCharacter : Character {
         if self.location.exits[direction] != nil {
             self.location = self.location.exits[direction]!
         } else {
-            print("You can't move that way.")
+            print(strings.noExit)
         }
     }
     
@@ -72,18 +72,18 @@ class ControllableCharacter : Character {
                 
                 // If we come to the last word of the line without any others recognized...
                 if !commandRecognized {
-                    print("I don't understand.")
+                    print(strings.commandNotRecognized)
                 }
             }
             
         case "talk", "speak":
-            print("To who?")
+            print(strings.noTalkTarget)
             
         case "take", "get", "pick", "pickup", "grab":
             var itemNameFound: Bool = false
             
             if commandLine.count == 1 {
-                print("What do you want to pick up?")
+                print(strings.noPickupTarget)
             } else {
                 for word in commandLine {
                     for item in self.location.inventory {
@@ -95,10 +95,11 @@ class ControllableCharacter : Character {
                                 break
                             }
                         }
+                        // TODO: Deal with attempting to pickup SceneryObjects
                     }
                 }
                 if !itemNameFound {
-                    print("You don't see that here.")
+                    print(strings.invalidPickupTarget)
                 }
             }
             
@@ -106,21 +107,21 @@ class ControllableCharacter : Character {
             var itemNameFound: Bool = false
             
             if commandLine.count == 1 {
-                print("What do you want to drop?")
+                print(strings.noDropTarget)
             } else {
                 for word in commandLine {
                     for item in self.inventory {
                             if item.name.lowercased() == word.lowercased() {
                                 self.location.floor.append(item)
                                 self.inventory.removeAll(where: {$0 === item})
-                                print("You drop the \(item.name)")
+                                print(strings.dropMessagePrefix + "\(item.name)" + strings.dropMessageSuffix)
                                 itemNameFound = true
                                 break
                             }
                     }
                 }
                 if !itemNameFound {
-                    print("You aren't carrying that.")
+                    print(strings.invalidDropTarget)
                 }
             }
             
@@ -128,7 +129,7 @@ class ControllableCharacter : Character {
             var itemNameFound: Bool = false
             
             if commandLine.count == 1{  // The user has not provided an argument...
-                print("Use what?")
+                print(strings.noUseTarget)
             } else {
                 for word in commandLine {
                     for item in self.inventory {
@@ -140,12 +141,12 @@ class ControllableCharacter : Character {
                     }
                 }
                 if !itemNameFound {
-                    print("You don't have that item.")
+                    print(strings.invalidUseTarget)
                 }
             }
             
         case "inventory", "i", "inv" :
-            print("You are carrying: ")
+            print(strings.inventoryMessagePrefix, terminator: " ")
             
             for item in self.inventory {
                 if !(item === self.inventory.last && self.inventory.count > 1) {
@@ -157,7 +158,7 @@ class ControllableCharacter : Character {
             
         case "go":
             if commandLine.count == 1 {
-                print("Go where?")
+                print(strings.noGoTarget)
             } else {
                 for word in commandLine {
                     if constants.directionList.contains(word.lowercased()) {
@@ -183,16 +184,16 @@ class ControllableCharacter : Character {
                         case "southeast", "se":
                             move(direction: .southeast)
                         default:
-                            print("That's not a direction I've ever heard of.")
+                            print(strings.invalidGoTarget)
                         }
                     }
                 }
             }
         case "open":
-            print("Open what?")
+            print(strings.noOpenTarget)
             
         case "close":
-            print("Close what?")
+            print(strings.noCloseTarget)
             
         case "save":
             print("Not implemented yet.")
@@ -234,19 +235,19 @@ class ControllableCharacter : Character {
             move(direction: .southwest)
             
         case "climb":
-            print("Climb what?")
+            print(strings.noClimbTarget)
             
         case "swim":
-            print("I don't see any water.")
+            print(strings.invalidSwimTarget)
             
         case "push":
-            print("Push what?")
+            print(strings.invalidPushTarget)
             
         case "pull":
-            print("Pull what?")
+            print(strings.invalidPullTarget)
             
         default:
-            print("I don't understand that. (Yet!)")
+            print(strings.commandNotRecognized)
         }
     }
 }
