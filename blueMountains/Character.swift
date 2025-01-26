@@ -6,11 +6,11 @@
 //
 
 class Character {
-    var name: String
-    var description: String
-    var location: Room
-    var traits: [String]
-    var inventory: [InventoryObject]
+    var name:           String
+    var description:    String
+    var location:       Room
+    var traits:         [String]
+    var inventory:      [InventoryObject]
     
     init(name: String, description: String, location: Room, traits: [String]) {
         self.name = name
