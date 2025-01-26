@@ -28,6 +28,9 @@ struct Constants {
     // specifically those that refer to objects that are always present regardless of location.
     // Other, more local nouns will be handled in their respective objects.
     let nounList: [String] = ["self", "room", "around", "myself", "environment", "world"]
+    
+    // directionList stores the strings that will be used to refer to directions, for convenience.
+    let directionList: [String] = ["north", "south", "east", "west", "up", "down", "northeast", "northwest", "southeast", "southwest"]
 }
 
 let constants = Constants() // Don't like this. Is there a way to encapsulate the constants without having to create an instance?

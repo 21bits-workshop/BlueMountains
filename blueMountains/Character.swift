@@ -156,8 +156,38 @@ class ControllableCharacter : Character {
             }
             
         case "go":
-            print("Go where?")
-            
+            if commandLine.count == 1 {
+                print("Go where?")
+            } else {
+                for word in commandLine {
+                    if constants.directionList.contains(word.lowercased()) {
+                        switch word.lowercased() {
+                        case "north", "n":
+                            move(direction: .north)
+                        case "south", "s":
+                            move(direction: .south)
+                        case "east", "e":
+                            move(direction: .east)
+                        case "west", "w":
+                            move(direction: .west)
+                        case "up", "u":
+                            move(direction: .up)
+                        case "down", "d":
+                            move(direction: .down)
+                        case "northeast", "ne":
+                            move(direction: .northeast)
+                        case "southwest", "sw":
+                            move(direction: .southwest)
+                        case "northwest", "nw":
+                            move(direction: .northwest)
+                        case "southeast", "se":
+                            move(direction: .southeast)
+                        default:
+                            print("That's not a direction I've ever heard of.")
+                        }
+                    }
+                }
+            }
         case "open":
             print("Open what?")
             
