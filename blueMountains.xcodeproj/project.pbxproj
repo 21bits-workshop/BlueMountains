@@ -19,6 +19,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E06E5E502D467C74008D7BFE /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		E0D4A1B72D41F3C70020FEFC /* blueMountains */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = blueMountains; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -44,6 +45,7 @@
 		E0D4A1AE2D41F3C70020FEFC = {
 			isa = PBXGroup;
 			children = (
+				E06E5E502D467C74008D7BFE /* .gitignore */,
 				E0D4A1B92D41F3C70020FEFC /* blueMountains */,
 				E0D4A1B82D41F3C70020FEFC /* Products */,
 			);
