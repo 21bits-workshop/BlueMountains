@@ -42,8 +42,7 @@ class ControllableCharacter : Character {
         // Again, we assume the first word is the command.
         
         switch commandLine.first {
-            
-        // TODO: Implement looking at items in Room inventories/floors.
+
         case "look", "l", "examine", "x":
             var commandRecognized = false
             
@@ -63,6 +62,20 @@ class ControllableCharacter : Character {
                         for item in self.inventory {
                             if word.lowercased() == item.name.lowercased() {
                                 print(item.inventoryDescription)
+                                commandRecognized = true
+                                break
+                            }
+                        }
+                        for item in self.location.inventory {
+                            if word.lowercased() == item.name.lowercased() {
+                                print(item.description)
+                                commandRecognized = true
+                                break
+                            }
+                        }
+                        for item in self.location.floor {
+                            if word.lowercased() == item.name.lowercased() {
+                                print(item.droppedDescription ?? "")
                                 commandRecognized = true
                                 break
                             }

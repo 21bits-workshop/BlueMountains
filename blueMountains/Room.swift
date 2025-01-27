@@ -17,7 +17,7 @@ class Room {
     
     var exits:          [Direction : Room]  // A dictionary containing all destination Rooms reachable from this Room. Keys are Directions.
     var inventory:      [GameObject]        // Contains all objects in their original locations in the room, these will print their original descriptions.
-    var floor:          [GameObject]        // Contains all objects that have previously been in the player inventory and then were dropped. Will print
+    var floor:          [InventoryObject]   // Contains all objects that have previously been in the player inventory and then were dropped. Will print
                                             // their droppedDescription.
     
     init(name: String, description: String, connections: RoomConnection?...) {
