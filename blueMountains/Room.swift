@@ -39,14 +39,12 @@ class Room {
     func printDescription() {
         print(description)
         print(exits)
-        print("TEST: Room inventory contains:", terminator: " ")
         for item in self.inventory {
-            print(item.name, terminator: ", ")
+            print(item.description, terminator: " ")
         }
         print("\n")
-        print("TEST: Room floor contains:", terminator: " ")
         for item in self.floor {
-            print(item.name, terminator: ", ")
+            print(item.droppedDescription ?? "", terminator: " ")
         }
         print("\n")
     }

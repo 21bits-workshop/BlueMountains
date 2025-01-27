@@ -111,6 +111,16 @@ class ControllableCharacter : Character {
                         // TODO: Deal with attempting to pickup SceneryObjects
                     }
                 }
+                for word in commandLine {
+                    for item in self.location.floor {
+                        if item.name.lowercased() == word.lowercased() {
+                            self.inventory.append(item)
+                            self.location.inventory.removeAll(where: {$0 === item})
+                            itemNameFound = true
+                            break
+                        }
+                    }
+                }
                 if !itemNameFound {
                     print(strings.invalidPickupTarget)
                 }
