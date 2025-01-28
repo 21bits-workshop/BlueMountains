@@ -30,8 +30,7 @@ class Game {
         let testRoom = Room(name: "Test Room", description: "You are in a test room. It's dark in here.")
         let testDiningRoom = Room(name: "Dining Room", description: "You are in a lavish dining room, with a long table set for at least a dozen guests.")
 
-        testRoom.addConnection(to: RoomConnection(direction: .south, destination: testDiningRoom))
-        testDiningRoom.addConnection(to: RoomConnection(direction: .north, destination: testRoom))
+        testRoom.connectRoomMutually(in: .south, to: testDiningRoom)
 
         let testPlayer = ControllableCharacter(name: "test player", description: "this is a test player", location: testRoom, traits: [])
         

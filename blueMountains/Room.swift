@@ -60,4 +60,36 @@ class Room {
     func addGameObject (gameObject: GameObject) {
         self.inventory.append(gameObject)
     }
+    
+    func reverseDirection (direction: Direction) -> Direction {
+        switch direction {
+        case .north:
+            return .south
+        case .south:
+            return .north
+        case .east:
+            return .west
+        case .west:
+            return .east
+        case .northeast:
+            return .southwest
+        case .southwest:
+            return .northeast
+        case .southeast:
+            return .northwest
+        case .northwest:
+            return .southeast
+        case .down:
+            return .up
+        case .up:
+            return .down
+        }
+    }
+    
+    func connectRoomMutually(in direction: Direction, to room: Room) {
+        let connectionToRoom = RoomConnection(direction: direction, destination: room)
+        self.addConnection(to: connectionToRoom)
+        let connectionFromRoom = RoomConnection(direction: room.reverseDirection(direction: direction), destination: self)
+        room.addConnection(to: connectionFromRoom)
+    }
 }
