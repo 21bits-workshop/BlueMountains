@@ -9,7 +9,7 @@
 // MARK: Initialization ------------------------------------------
 
 let currentGame = Game()
-let parser = TextParser()
+let parser      = TextParser()
 
 // ---------------------------------------------------------
 

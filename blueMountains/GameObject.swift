@@ -6,12 +6,12 @@
 //
 
 class GameObject {
-    let name : String
-    let description : String
+    let name :          String
+    let description :   String
     
     init(name: String, description: String) {
-        self.name = name
-        self.description = description
+        self.name           = name
+        self.description    = description
     }
 }
 
@@ -20,10 +20,10 @@ class SceneryObject : GameObject {
 }
 
 class InventoryObject : GameObject {
-    var isConsumable : Bool = false
-    var inventoryDescription: String = ""
-    var droppedDescription: String? = ""
-    var useFunction: () -> Void = {}
+    var isConsumable : Bool             = false
+    var inventoryDescription: String    = ""
+    var droppedDescription: String?     = ""
+    var useFunction: () -> Void         = {}
     
     init(name: String, description: String, isConsumable: Bool, inventoryDescription: String, droppedDescription: String? = nil, useFunction: @escaping () -> Void) {
         super.init(name: name, description: description)

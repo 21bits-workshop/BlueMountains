@@ -13,11 +13,11 @@ class Character {
     var inventory:      [InventoryObject]
     
     init(name: String, description: String, location: Room, traits: [String]) {
-        self.name = name
-        self.description = description
-        self.location = location
-        self.traits = traits
-        inventory = []
+        self.name           = name
+        self.description    = description
+        self.location       = location
+        self.traits         = traits
+        inventory           = []
     }
     
     func printDescription() {
@@ -108,7 +108,9 @@ class ControllableCharacter : Character {
                                 break
                             }
                         }
-                        // TODO: Deal with attempting to pickup SceneryObjects
+                        else if item is SceneryObject {
+                            print(strings.sceneryPickupAttempt)
+                        }
                     }
                 }
                 for word in commandLine {
