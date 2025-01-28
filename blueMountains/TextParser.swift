@@ -6,9 +6,9 @@
 //
 
 class TextParser {
-    let vocabulary: [String]
-    var inputString: String?
-    var parsedText: [String]
+    let vocabulary:     [String]
+    var inputString:    String?
+    var parsedText:     [String]
     
     init() {
         self.vocabulary     = constants.verbList + constants.nounList
