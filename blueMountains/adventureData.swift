@@ -25,7 +25,21 @@ class adventureData {
         rooms["Grating Clearing"] = Room(name: "Clearing", description: " ")
         rooms["Clearing"] = Room(name: "Clearing", description: "You are in a mall clearing in a well marked forest path that extends to the east and west.")
         // House
-        
+        rooms["Kitchen"] = Room(name: "Kitchen", description: " ")
+        rooms["Attic"] = Room(name: "Attic", description: "This is the attic. Tho only exit is a stairway leading down.")
+        rooms["Living Room"] = Room(name: "Living Room", description: " ")
+        // Cellar and Vicinity
+        rooms["Cellar"] = Room(name: "Cellar", description: " ")
+        rooms["Troll Room"] = Room(name: "The Troll Room", description: "This is a small room with passages to the east and south and a forbidding hole leading west. bloodstains and deep scratches (perhaps made by an axe) mar the walls.")
+        rooms["East of Chasm"] = Room(name: "East of Chasm", description: "Tou are on the east edge of a chasm, the bottom of which cannot be seen. A narrow passage goes north, and the path you are on continues to the east.")
+        rooms["Gallery"] = Room(name: "Gallery", description: "This is an art gallery. Most of the paintings have been stolen by vandals with exceptional taste. The vandals left through either the north of west exits.")
+        rooms["Studio"] = Room(name: "Studio", description: "This appears to have been an artist's studio. The walls and floors are splattered with paints of 69 different colors. Strangely enough, nothing of value is hanging here. At the south end of the room is a open door (also covered with paint). A dark and narrow chimney leads up froma fireplace; although you might be able to get up it, it seems unlikely you could get back down.")
+        // Maze
+        rooms["Maze 1"] = Room(name: "Maze", description: "This is part of a maze of twisty little passages, all alike.")
+        rooms["Maze 2"] = Room(name: "Maze", description: "This is part of a maze of twisty little passages, all alike.")
+        rooms["Maze 3"] = Room(name: "Maze", description: "This is part of a maze of twisty little passages, all alike.")
+        rooms["Maze 4"] = Room(name: "Maze", description: "This is part of a maze of twisty little passages, all alike.")
+        rooms["Dead End 1"] = Room(name:"Dead End", description: "You have come to a dead end in the maze.")
         
         
         playerCharacter = ControllableCharacter(name: "Player", description: "A Player", location: rooms["South of House"]!, traits: [""])
