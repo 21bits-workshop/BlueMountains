@@ -8,12 +8,10 @@
 
 // MARK: Initialization ------------------------------------------
 
-let currentGame = Game()
+let currentGame = Game(playerCharacter: data.playerCharacter, rooms: data.rooms)
 let parser      = TextParser()
 
 // ---------------------------------------------------------
-
-
 
 // MARK: Main Loop -----------------------------------------------
 

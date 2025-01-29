@@ -38,15 +38,22 @@ class Room {
     
     func printDescription() {
         print(description)
-        print(exits)
+        print("Exits lead", terminator: " ")
+        for direction in self.exits.keys {
+            print(direction, terminator: "")
+            if self.exits[direction] != nil {
+                if self.exits[direction]!.wasDescribed {
+                    print(" to the \(self.exits[direction]!.name)")
+            }
+            }
+        }
         for item in self.inventory {
             print(item.description, terminator: " ")
         }
-        print("\n")
         for item in self.floor {
             print(item.droppedDescription ?? "", terminator: " ")
         }
-        print("\n")
+        print("\n", terminator: "")
     }
     
     func printName() {
