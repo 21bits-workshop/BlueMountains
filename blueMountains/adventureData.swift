@@ -26,6 +26,9 @@ class adventureData {
         rooms["Clearing"] = Room(name: "Clearing", description: "You are in a mall clearing in a well marked forest path that extends to the east and west.")
         // House
         
+        
+        
+        playerCharacter = ControllableCharacter(name: "Player", description: "A Player", location: rooms["South of House"]!, traits: [""])
     }
 }
 
