@@ -5,6 +5,7 @@
 //  Created by 21bits on 1/22/25.
 //
 
+// TODO: Add ability to temporarily block exits.
 
 // MARK: Initialization ------------------------------------------
 
