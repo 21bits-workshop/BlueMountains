@@ -40,7 +40,32 @@ class adventureData {
         rooms["Maze 3"] = Room(name: "Maze", description: "This is part of a maze of twisty little passages, all alike.")
         rooms["Maze 4"] = Room(name: "Maze", description: "This is part of a maze of twisty little passages, all alike.")
         rooms["Dead End 1"] = Room(name:"Dead End", description: "You have come to a dead end in the maze.")
-        
+        rooms["Maze 5"] = Room(name: "Maze", description: "this is part of a maze of twisty little passages, all alike. A skeleton, probably the remains of a luckless adventurer, lies here.")
+        rooms["Dead End 2"] = Room(name: "Dead End", description: "You have come to a dead end in the maze.")
+        rooms["Maze 6"] = Room(name: "Maze", description: "This is part of a maze of twisty little passages, all alike.")
+        rooms["Maze 7"] = Room(name: "Maze", description: "This is part of a maze of twisty little passages, all alike.")
+        rooms["Maze 8"] = Room(name: "Maze", description: "This is part of a maze of twisty little passages, all alike.")
+        rooms["Dead End 3"] = Room(name: "Dead End", description: "You have come to a dead end in the maze.")
+        rooms["Maze 9"] = Room(name: "Maze", description: "This is part of a maze of twisty little passages, all alike.")
+        rooms["Maze 10"] = Room(name: "Maze", description: "This is part of a maze of twisty little passages, all alike.")
+        rooms["Maze 11"] = Room(name: "Maze", description: "This is part of a maze of twisty little passages, all alike.")
+        rooms["Grating Room"] = Room(name: "Grating Room", description: " ")
+        rooms["Maze 12"] = Room(name: "Maze", description: "This is part of a maze of twisty little passages, all alike.")
+        rooms["Dead End 4"] = Room(name: "Dead End", description: "You have come to a dead end in the maze.")
+        rooms["Maze 13"] = Room(name: "Maze", description: "This is part of a maze of twisty little passages, all alike.")
+        rooms["Maze 14"] = Room(name: "Maze", description: "This is part of a maze of twisty little passages, all alike.")
+        rooms["Maze 15"] = Room(name: "Maze", description: "This is part of a maze of twisty little passages, all alike.")
+        // Cyclops and Hideaway
+        rooms["Cyclops Room"] = Room(name: "Cyclops Room", description: " ")
+        rooms["Strange Passage"] = Room(name: "Strange Passage", description: "This is a long passage. to the west is one entrance. On the east ther is an old wooden door, with a large opening in it (about cyclops sized).")
+        rooms["Treasure Room"] = Room(name: "Treasure Room", description: "This is a large room, whose east wall is solid granite. A number of discarded bags, which crumble at your touch, are scattered about on the floor. There is an exit down a staircase.")
+        // Reservoir Area
+        rooms["Reservoir South"] = Room(name: "Reservoir South", description: " ")
+        rooms["Reservoir"] = Room(name: "Reservoir", description: " ")
+        rooms["Reservoir North"] = Room(name: "Reservoir North", description: " ")
+        rooms["Stream View"] = Room(name: "Stream View", description: "You are standing on a path beside a gently flowing stream. The path follows the stream, which flows from west to east.")
+        rooms["In Stream"] = Room(name: "Stream", description: "You are on the gently flowing stream. The upstream route is too narrow to navigate, and the downstream rout is invisible due to twisting walls. There is a narrow beach to land on.")
+        // Mirror Rooms and Vicinity
         
         playerCharacter = ControllableCharacter(name: "Player", description: "A Player", location: rooms["South of House"]!, traits: [""])
     }
